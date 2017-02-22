@@ -17,6 +17,7 @@ app.use(express.static('./public'));
 // NOTE: Routes for requesting HTML resources
 app.get('/', (request, response) => response.sendFile('index.html', {root: './public'}));
 app.get('/new', (request, response) => response.sendFile('new.html', {root: './public'}));
+app.get('/about', (request, response) => response.sendFile('index.html', {root: './public'}));
 
 
 // NOTE: Routes for making API calls to enact CRUD Operations on our database
