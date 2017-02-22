@@ -5,7 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
-const conString = ''; // TODO: Don't forget to set your own conString
+const conString = 'postgres://localhost:5432'; // DONE: Don't forget to set your own conString
 const client = new pg.Client(conString);
 client.connect(console.error);
 
@@ -15,8 +15,8 @@ app.use(express.static('./public'));
 
 
 // NOTE: Routes for requesting HTML resources
-app.get('/', (request, response) => response.sendFile('index.html', {root: '.'}));
-app.get('/new', (request, response) => response.sendFile('new.html', {root: '.'}));
+app.get('/', (request, response) => response.sendFile('index.html', {root: './public'}));
+app.get('/new', (request, response) => response.sendFile('new.html', {root: './public'}));
 
 
 // NOTE: Routes for making API calls to enact CRUD Operations on our database

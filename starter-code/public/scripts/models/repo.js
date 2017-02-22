@@ -10,17 +10,11 @@
     $.ajax({
       url: 'https://api.github.com/user/repos',
       method: 'GET',
-      headers: {
-        Authorization: githubToken
-      }
+      headers: {'Authorization': `token ${githubToken}`}
     })
-    .then(data => {
-      console.log(data);
-      data.forEach(repo => $('#about').append(`<p>${repo.name}</p>`))
-    },
-     err => {
-       console.error('Status Code: ', err.status);
-     });
+    .then(data => repos.all = data,
+      err => console.error(err))
+      .then(callback);
   };
 
   // REVIEW: Model method that filters the full collection for repos with a particular attribute.
