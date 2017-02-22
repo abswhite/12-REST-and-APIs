@@ -2,6 +2,7 @@
 
 (function(module) {
   const articleController = {};
+
   articleController.index = () => {
     Article.fetchAll(articleView.initIndexPage);
 
