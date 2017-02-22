@@ -64,3 +64,6 @@ Session.vim
 # auto-generated tag files
 tags
 githubToken.js
+
+# Personal Access Tokens
+public/githubtoken.js
